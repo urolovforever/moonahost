@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getProductBySlug } from '../api/api';
 import ProductCard from '../components/ProductCard';
+import SEOHelmet from '../components/SEOHelmet';
 
 function ProductDetail() {
   const { slug } = useParams();
@@ -33,9 +34,20 @@ function ProductDetail() {
   if (!product) return <div className="text-center py-12">Mahsulot topilmadi</div>;
 
   const images = [product.image, product.image_2, product.image_3].filter(Boolean);
+  const discountPrice = product.discount_percentage > 0
+    ? product.price * (1 - product.discount_percentage / 100)
+    : product.price;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <SEOHelmet
+        title={product.name}
+        description={`${product.name} - ${product.description.substring(0, 150)}... Narxi: ${formatPrice(discountPrice)} so'm. MoonGift dan sotib oling.`}
+        keywords={`${product.name}, ${product.category?.name || ''}, lazer gravüra, sovg'alar, MoonGift`}
+        ogImage={product.image}
+        url={`/products/${product.slug}`}
+        type="product"
+      />
       {/* Back Button */}
       <button
         onClick={() => navigate(-1)}

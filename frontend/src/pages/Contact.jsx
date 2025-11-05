@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { sendContactMessage } from '../api/api';
+import SEOHelmet from '../components/SEOHelmet';
 
 function Contact() {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
@@ -22,6 +23,12 @@ function Contact() {
 
   return (
     <div className="min-h-screen bg-surface-light py-16">
+      <SEOHelmet
+        title="Bog'lanish"
+        description="MoonGift bilan bog'laning. Savollaringiz, buyurtmalar yoki maxsus takliflar uchun biz bilan aloqaga chiqing. Telegram va Instagram orqali ham bog'lanishingiz mumkin."
+        keywords="MoonGift aloqa, telefon raqam, telegram, instagram, bog'lanish, xabar yuborish, savol berish"
+        url="/contact"
+      />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h1 className="text-5xl font-bold text-text-primary mb-4">Bog'lanish</h1>

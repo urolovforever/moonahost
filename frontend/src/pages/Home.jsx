@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getFeaturedProducts } from '../api/api';
 import ProductCard from '../components/ProductCard';
+import SEOHelmet from '../components/SEOHelmet';
 
 function Home() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -26,6 +27,12 @@ function Home() {
 
   return (
     <div>
+      <SEOHelmet
+        title="Bosh sahifa"
+        description="MoonGift - O'zbekistondagi eng yaxshi lazer gravüra xizmatlari. Yog'och, metall va boshqa materiallarga yuqori sifatli lazer ishlov berish. Individual dizaynlar, maxsus buyurtmalar va noyob sovg'alar."
+        keywords="MoonGift, lazer gravüra, yog'ochga rasm chizish, sovg'alar, Toshkent sovg'alar, noyob sovg'alar, lazer ishlov berish, individual dizayn, maxsus buyurtma"
+        url="/"
+      />
       {/* Hero section with background image */}
       <section className="relative bg-primary py-20 md:py-32" style={{
         backgroundImage: 'url(/hero-bg.jpg)',
