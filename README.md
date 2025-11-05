@@ -323,9 +323,9 @@ Bu loyiha aHost shared hosting uchun tayyorlangan.
 
 #### Qisqa ko'rsatma:
 
-**Backend** (Django + MySQL):
+**Backend** (Django + PostgreSQL):
 - Backend fayllarni `public_html/api/` ga yuklang
-- MySQL database yarating (cPanel)
+- PostgreSQL database yarating (cPanel yoki support orqali)
 - `.env` faylni sozlang
 - Virtual environment o'rnating va dependencies install qiling
 
@@ -335,7 +335,7 @@ Bu loyiha aHost shared hosting uchun tayyorlangan.
 - `.htaccess` faylni ko'chirib qo'ying (React routing uchun)
 
 **Domain**: moongift.uz
-**Database**: MySQL (aHost taqdim etadi)
+**Database**: PostgreSQL (aHost taqdim etadi, yoki SQLite)
 **SSL**: Let's Encrypt (cPanel orqali)
 
 ---

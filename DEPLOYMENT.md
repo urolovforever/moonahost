@@ -7,7 +7,7 @@
 Loyiha aHost shared hosting uchun tayyorlangan:
 - **Backend**: Django (Python 3.9+)
 - **Frontend**: React + Vite (Static build)
-- **Database**: MySQL (aHost tomonidan taqdim etiladi)
+- **Database**: PostgreSQL (aHost tomonidan taqdim etiladi)
 - **Hosting**: 500 MB shared hosting
 - **Domain**: moongift.uz
 
@@ -46,9 +46,9 @@ zip -r backend.zip . -x "*.pyc" -x "__pycache__/*" -x "db.sqlite3" -x "staticfil
    - ZIP faylni extract qiling
    - ZIP faylni o'chirib tashlang
 
-#### 2.3. MySQL Database yaratish
+#### 2.3. PostgreSQL Database yaratish
 
-1. **cPanel → MySQL Databases**:
+1. **cPanel → PostgreSQL Databases** (yoki support'dan so'rang):
    - Database name: `moongift_db` (yoki boshqa nom)
    - Database user: `moongift_user`
    - Password: kuchli parol yarating
@@ -60,7 +60,13 @@ zip -r backend.zip . -x "*.pyc" -x "__pycache__/*" -x "db.sqlite3" -x "staticfil
    DB User: username_moongift_user
    DB Password: your_password
    DB Host: localhost
+   DB Port: 5432
    ```
+
+**MUHIM**: Agar aHost PostgreSQL qo'llab-quvvatlamasa:
+- SQLite ishlatishingiz mumkin (development uchun yetarli)
+- Yoki support'dan PostgreSQL yoqishni so'rang
+- Yoki VPS/Cloud hosting'ga o'tishni o'ylab ko'ring
 
 #### 2.4. Backend .env faylni sozlash
 
@@ -72,8 +78,8 @@ SECRET_KEY=your-very-secret-key-here-change-this
 DEBUG=False
 ALLOWED_HOSTS=moongift.uz,www.moongift.uz,api.moongift.uz
 
-# Database - MySQL
-DATABASE_URL=mysql://username_moongift_user:your_password@localhost/username_moongift_db
+# Database - PostgreSQL
+DATABASE_URL=postgresql://username_moongift_user:your_password@localhost:5432/username_moongift_db
 
 # CORS Settings
 CORS_ALLOWED_ORIGINS=https://moongift.uz,https://www.moongift.uz
@@ -350,7 +356,7 @@ python manage.py collectstatic --no-input
 
 ### Backend:
 - [ ] Backend fayllar `public_html/api/` ga yuklangan
-- [ ] MySQL database yaratilgan
+- [ ] PostgreSQL database yaratilgan (yoki SQLite ishlatiladi)
 - [ ] .env fayl sozlangan (SECRET_KEY, DATABASE_URL, ALLOWED_HOSTS)
 - [ ] Virtual environment yaratilgan
 - [ ] Dependencies o'rnatilgan (`pip install -r requirements.txt`)
