@@ -102,18 +102,6 @@ WHITENOISE_USE_FINDERS = True
 WHITENOISE_AUTOREFRESH = True
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Telegram Storage Configuration
-TELEGRAM_BOT_TOKEN = config('TELEGRAM_BOT_TOKEN', default='')
-TELEGRAM_CHAT_ID = config('TELEGRAM_CHAT_ID', default='')
-
-# Default file storage
-if TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID:
-    DEFAULT_FILE_STORAGE = 'products.telegram_storage.TelegramStorage'
-else:
-    # Fallback to local storage
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = BASE_DIR / 'media'
-
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
