@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getProducts, getCategories } from '../api/api';
 import ProductCard from '../components/ProductCard';
 import FilterSidebar from '../components/FilterSidebar';
+import SEOHelmet from '../components/SEOHelmet';
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -99,6 +100,12 @@ function Products() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <SEOHelmet
+        title="Mahsulotlar"
+        description="MoonGift mahsulotlar katalogi - lazer texnologiyasi bilan yaratilgan noyob sovg'alar. Yog'och, metall va boshqa materiallarga lazer gravüra. Turli kategoriyalar va narxlarda mahsulotlar."
+        keywords="MoonGift mahsulotlar, lazer gravüra mahsulotlar, sovg'alar katalogi, yog'och mahsulotlar, metall sovg'alar, narxlar, online do'kon"
+        url="/products"
+      />
       {/* Header with Filter Button */}
       <div className="mb-8 flex items-center justify-between">
         <div>
