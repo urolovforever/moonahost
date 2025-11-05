@@ -25,12 +25,6 @@ export default defineConfig({
     },
   },
 
-  // 🔥 Render uchun muhim bo‘lim
-  preview: {
-    port: 10000,
-    allowedHosts: ['moongift-frontend.onrender.com'], // <-- bu joy shart
-  },
-
   build: {
     outDir: 'dist',
     sourcemap: false,

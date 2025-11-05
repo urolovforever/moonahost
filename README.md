@@ -315,36 +315,28 @@ curl http://localhost:8000/api/products/
 
 ## 📦 Production Deploy
 
-### Rasmlarni Qo'shish (Deploy'dan oldin)
-1. **Logo** (`frontend/public/logo.png`)
-   - Tavsiya: 200x200px, PNG format, shaffof fon
-   - Ko'rinadi: Navbar va Footer'da
+### aHost Shared Hosting (moongift.uz)
 
-2. **Hero Background** (`frontend/public/hero-bg.jpg`)
-   - Tavsiya: 1920x800px yoki kattaroq
-   - Ko'rinadi: Bosh sahifada matn orqasida
+Bu loyiha aHost shared hosting uchun tayyorlangan.
 
-### Backend (Railway/Render)
-1. PostgreSQL database yarating
-2. Environment variables:
-   ```
-   SECRET_KEY=your-secret-key
-   DEBUG=False
-   ALLOWED_HOSTS=yourdomain.com
-   DATABASE_URL=postgresql://...
-   CORS_ALLOWED_ORIGINS=https://moongift.uz
-   ```
-3. `python manage.py collectstatic`
-4. `python manage.py migrate`
+**To'liq deployment qo'llanma**: [DEPLOYMENT.md](./DEPLOYMENT.md)
 
-### Frontend (Vercel/Netlify)
-1. Rasmlarni qo'shib bo'lgandan keyin build qiling
-2. `npm run build`
-3. Environment variables:
-   ```
-   VITE_API_URL=https://api.yourdomain.com
-   ```
-4. Deploy `dist/` papkani
+#### Qisqa ko'rsatma:
+
+**Backend** (Django + MySQL):
+- Backend fayllarni `public_html/api/` ga yuklang
+- MySQL database yarating (cPanel)
+- `.env` faylni sozlang
+- Virtual environment o'rnating va dependencies install qiling
+
+**Frontend** (React + Vite):
+- `npm run build` bajaring
+- `dist/` papka ichidagi fayllarni `public_html/` ga yuklang
+- `.htaccess` faylni ko'chirib qo'ying (React routing uchun)
+
+**Domain**: moongift.uz
+**Database**: MySQL (aHost taqdim etadi)
+**SSL**: Let's Encrypt (cPanel orqali)
 
 ---
 
